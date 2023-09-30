@@ -19,19 +19,19 @@ The file `Dockerfile` has all step for create a imagen docker in our environment
 
 ## Step 2 | list Python dependencies
 
-When one instance of Python is create, i can set some files or dependencies that I can include durint install it. For it I to created the `requeriment.txt` file. Add other dependencies here.
+When one instance of Python is created, can set some dependencies in one file called 'requeriment.txt' file.
 
-## Step 3 | Building docker file
+## Step 3 | Building docker image
 
-Building dockerfile for create the docker imagen.
+Building my Docker image from Dockerfile:
 
 ```bash
 # use -t for define name and tag of my imagen 
 docker build -t my-pythonm-dev-alefu:v1.0 .
 ```
-## Step 4 | Run the docker container with our IDE
+## Step 4 | Run the docker container
 
-Now we docker container from the image creted in the before step, and use it with our Python IDE.
+Now I run my Docker container from the Docker image created.
 
 > for see our local docker images, we can use next command: `docker image ls`.
 > 
@@ -49,14 +49,14 @@ Now we docker container from the image creted in the before step, and use it wit
 # -it allows interactive mode
 # --rm removes the container whe it stops
 # -v <my-local-path>:</my-container-path> mounts the local path to container directory.
-docker run -it --rm -v ./mypythonapp:/app my-pythonm-dev-alefu:v1.0 
+docker run -it --rm -p 4000:80 -v ./mypythonapp:/app my-pythonm-dev-alefu:v1.0 
 ```
 <div style="display:flex; flex-direction: column; align-items: flex-start;align-content: center;margin:10px 0 10px 0;">
 <img src="resources/img/docker-img-python.png" style="width:800px; border:solid 2px #cdcdcd;" alt="" />
 <small>docker image created.</small>
 </div>
 
-### Install one plugin:
+## Step 5 | Install one plugin and Use IDE:
 Now open our Python IDE, in my case is VSCode.
 
 Install one plugin [`Remote Development`][link-plugin] one microsoft plugin
